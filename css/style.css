@@ -1,0 +1,96 @@
+@import url(https://fonts.googleapis.com/css?family=Varela+Round);
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+body {
+  font-family: 'Droid Serif';
+}
+
+h1, h2, h3 {
+  font-family: 'Varela Round';
+  font-weight: normal;
+}
+
+li:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.center-table {
+  padding-top: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+table, th, td {
+  border: 1px solid #ccc !important;
+}
+
+.image-float-right {
+  display: block;
+  float: right;
+}
+
+.text-smaller {
+  font-size: 50%;
+}
+
+.text-medium {
+  font-size: 60%;
+}
+
+.text-links {
+  font-size: 60%;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+blockquote {
+  /* background: #f9f9f9; */
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  /* quotes: "\201C""\201D""\2018""\2019"; */
+}
+
+blockquote:before {
+  color: #ccc;
+  /* content: open-quote; */
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+
+blockquote p {
+  display: inline;
+  font-size: 0.8em;
+}
+
+/* code { */
+/*   background: #fff; */
+/* } */
+
+.remark-code, .remark-inline-code {
+  font-family: 'Ubuntu Mono';
+}
+
+.remark-slide-container {
+  background-color: #fff;
+}
+
+.remark-slide-content {
+  color: white;
+  background-color: #222;
+}
+
+.remark-inline-code {
+  /* color: red; */
+}
