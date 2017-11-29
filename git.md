@@ -155,8 +155,11 @@ $ git status
 ```
 
 ---
+class: center
 
 ## Life-cycle of file changes
+
+<br/>
 
 .center[![git lifecycle](images/lifecycle.png)]
 
@@ -185,10 +188,15 @@ class: middle, center
 
 ## git commit
 
-Now that we have added the README file and commited it, git will know about its state and it will tell us about any changes done to it. So let's make some changes.
+Now that we have added the README file and commited it, git will know about its state and it will tell us about any changes done to it. So let's make some changes!
 
 ```
 $ echo "This is a new line" >> README
+```
+
+Git now tells us that the file has been modified.
+
+```
 $ git status
 
 -> On branch master
@@ -203,9 +211,7 @@ $ git status
 
 ---
 
-## git commit
-
-Git now tells us that the file has been modified.
+## git diff
 
 We can even ask `git` about what has changed since the last commit.
 
@@ -266,7 +272,7 @@ $ git log
 
 ## git log
 
-We can even display a nice ASCII graph of the log output
+We can display a nice ASCII graph of the log output
 
 ```
 $ git log --graph --pretty=format:"%h %d %s (%cr) <%an>" --abbrev-commit --date=relative
@@ -281,13 +287,13 @@ We can colorize the output
 git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 ```
 
-Let's make an alias of that
+...let's make an alias of that
 
 ```
 git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 ```
 
-We can now get a colorized graph of the log output by typing `git lg`
+We can now get a colorized graph of the log output by typing &nbsp;`git lg`
 
 ---
 class: middle, center
@@ -389,7 +395,7 @@ git lg
    * 9319ba3 Initial commit (2 days ago) <David Granström>
 ```
 
-If we check the file content we see that the line we added on the "experiment" branch has vanished
+...and if we check the file content we see that the line we added on the "experiment" branch has vanished
 
 ```
 $ cat README
@@ -414,6 +420,7 @@ Let's switch back to the "experiment" branch
 $ git checkout experiment
 ```
 
+--
 And add another commit
 
 ```
@@ -431,7 +438,7 @@ $ git commit README -m "Add another experimental commit"
 
 ## git merge
 
-Say that we are happy with the state of the "experiment" branch and want to merge back the commits to master
+Say that we are happy with the state of the "experiment" branch and want to merge back the commits into master
 
 ```
 $ git checkout master
@@ -447,7 +454,7 @@ $ git merge --no-ff experiment
    1 file changed, 2 insertions(+)
 ```
 
-The `--no-ff` flag is optional and means "no fast forward" and gives us clearer representation of the commit history.
+The `--no-ff` flag is optional and means "no fast-forward" and gives us a clearer representation of the commit history
 
 ---
 
@@ -479,28 +486,28 @@ $ git branch -d experiment
 
 ---
 
-## git merge (conflict)
+<!-- ## git merge (conflict) -->
 
-```
-$ echo "A new commit on master" >> README
-```
+<!-- ``` -->
+<!-- $ echo "A new commit on master" >> README -->
+<!-- ``` -->
 
-```
-$ git commit README -m "Add new line on master"
+<!-- ``` -->
+<!-- $ git commit README -m "Add new line on master" -->
 
--> [master 62e82ac] Add new line on master
-   1 file changed, 1 insertion(+)
-```
+<!-- -> [master 62e82ac] Add new line on master -->
+<!--    1 file changed, 1 insertion(+) -->
+<!-- ``` -->
 
-```
-$ git lg --all
+<!-- ``` -->
+<!-- $ git lg --all -->
 
--> * 62e82ac - (HEAD -> master) Add new line on master (7 seconds ago) <David Granström>
-   | * fcb468e - (experiment) Add experimental line (31 minutes ago) <David Granström>
-   |/
-   * af25761 - Add new line of text (2 days ago) <David Granström>
-   * 9319ba3 - Initial commit (2 days ago) <David Granström>
-```
+<!-- -> * 62e82ac - (HEAD -> master) Add new line on master (7 seconds ago) <David Granström> -->
+<!--    | * fcb468e - (experiment) Add experimental line (31 minutes ago) <David Granström> -->
+<!--    |/ -->
+<!--    * af25761 - Add new line of text (2 days ago) <David Granström> -->
+<!--    * 9319ba3 - Initial commit (2 days ago) <David Granström> -->
+<!-- ``` -->
 
 
 
