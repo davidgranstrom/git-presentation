@@ -182,7 +182,7 @@ class: middle, center
 
 ---
 
-## Committing changes
+## git commit
 
 Now that we have added the README file and commited it, git will know about its state and it will tell us about any changes done to it. So let's make some changes.
 
@@ -202,7 +202,7 @@ $ git status
 
 ---
 
-## Committing changes
+## git commit
 
 Git now tells us that the file has been modified.
 
@@ -222,7 +222,7 @@ $ git diff
 
 ---
 
-## Committing changes
+## git commit
 
 We can now repeat our add/commit cycle to record the new changes to the file
 
