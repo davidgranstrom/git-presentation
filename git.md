@@ -125,8 +125,9 @@ $ git status
            new file:   README
 ```
 
---
-We can see that the status has changed. The file is now to git in a state called "staged". In order for git to record it we need to `commit` it.
+We can see that the status has changed. The file is now to git in a state called "staged".
+
+In order for git to begin to track it we need to `commit` it.
 
 ---
 
