@@ -20,7 +20,7 @@ Git (/ɡɪt/) is a **version control system**
 
 ---
 
-## Why VCS is *A Good Thing™*
+## One of the reasons VCS is *A Good Thing™*
 
 Does this seem familiar to you?
 
@@ -36,7 +36,7 @@ my-awesome-code2-FINAL2-FINAL-FOR-REALZ_001.scd
 ```
 
 --
-**git** will help you.
+**git** can help you.
 
 ---
 class: middle, center
@@ -98,7 +98,7 @@ $ git status
 
 Nice. Git just gave us some very useful information!
 
-It told us that we have no `commits` yet, and also that we have an `Untracked file`. Let's go ahead and `add` this file so git can start to track it.
+It told us that we have no *commits* yet, and also that we have an *Untracked file*. Let's go ahead and `add` this file so git can start to track it.
 
 ---
 
@@ -110,7 +110,7 @@ Add untracked files to git using the `add` command
 $ git add README
 ```
 
-Let's ask `git` about its status again
+Let's ask git about its status again
 
 --
 
@@ -217,7 +217,7 @@ $ git status
 
 ## git diff
 
-We can even ask `git` about what has changed since the last commit.
+We can even ask git about what has changed since the last commit. Using the `diff` command.
 
 ```
 $ git diff
@@ -308,7 +308,7 @@ class: middle, center
 
 ## git remote
 
-Let's publish our `git-test` repository on github. 
+Let's publish our *git-test* repository on github. 
 
 Go to [github.com](https://github.com/). If you don't have an account there you could make one for free.
 
@@ -361,16 +361,6 @@ Then copy and paste the lines from the github page (don't copy from this slide a
 ```
 $ git remote add origin https://github.com/you/git-test.git
 $ git push -u origin master
-
--> Counting objects: 13, done.
-   Delta compression using up to 4 threads.
-   Compressing objects: 100% (7/7), done.
-   Writing objects: 100% (13/13), 1.07 KiB | 1.07 MiB/s, done.
-   Total 13 (delta 3), reused 0 (delta 0)
-   remote: Resolving deltas: 100% (3/3), done.
-   To github.com:davidgranstrom/git-test.git
-   * [new branch]      master -> master
-   Branch master set up to track remote branch master from origin.
 ```
 
 That's it! You have now pushed your local repository to a remote repository residing on github. Refresh your browser tab to see the content of your repository.
