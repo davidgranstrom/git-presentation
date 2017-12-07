@@ -297,227 +297,168 @@ git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(
 git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 ```
 
-We can now get a colorized graph of the log output by typing &nbsp;`git lg`
+We can now get a colorized graph of the log output by typing `git lg`
 
 ---
 class: middle, center
 
-# Branching
+# Distributing
 
 ---
 
-## git branch
+## git remote
 
-One of the powers of using a system such as `git` is that we can "branch out" and experiment freely with our files without losing any history.
+Let's publish our `git-test` repository on github. 
 
-Create a new branch
+Go to [github.com](https://github.com/). If you don't have an account there you could make one for free.
 
-```
-$ git branch experiment
-```
+Github is one of the most popular services for open source projects as of now, but there exists others as well. Most notably [bitbucket.org](https://bitbucket.org/) which also let's you have private repositorys for free.
 
---
-Move to the new branch
-
-```
-$ git checkout experiment
-
--> Switched to branch 'experiment'
-```
-
-*ProTip:* We can compress the two commands above into one by using the `-b` flag for the checkout command
-
-```
-$ git checkout -b experiment
-
--> Switched to a new branch 'experiment'
-```
+You could also host your own server to store remote repositories.
 
 ---
 
-## git branch
+## git remote
 
-Let's take a look at the status
+On your github profile, go to the **Repositories** tab.
 
-```
-$ git status
+![Github repository](images/repos.png)
 
--> On branch experiment
-   nothing to commit, working tree clean
-```
-
-We are now on the "experiment" branch, anything we commit from here will end up on this new branch.
+And click the **New** button
 
 ---
 
-## git branch
+## git remote
 
-Add something new to the README
+<img src="images/create-repo.png" width="50%" style="float:right;"/>
 
-```
-$ echo "This is an experimental feature.." >> README
-```
+Create a name for your repository, and give it an optional description.
 
---
-..and commit it
+You can also choose if the repository will be public or private (the private option is only available if you have a paid account)
 
-```
-$ git commit README -m "Add experimental line"
+As we already have an exsisting repository on our machine, we will **not** initialize the repository with a README.
 
--> [experiment fcb468e] Add experimental line
-   1 file changed, 1 insertion(+)
-```
-
-```
-$ git lg
-
--> * fcb468e  (HEAD -> experiment) Add experimental line (3 minutes ago) <David Granström>
-   * af25761  (master) Add new line of text (2 days ago) <David Granström>
-   * 9319ba3  Initial commit (2 days ago) <David Granström>
-```
-
-`HEAD` references the currently checked out commit which has now moved ahead of master
+Finally, click **Create repository**
 
 ---
 
-## git branch
+## git remote
 
-Let's move back to the master branch
+<img src="images/repo-setup.png" width="70%" style="float:right;"/>
 
-```
-$ git checkout master
+You will be taken to a screen with different suggestions.
 
--> Switched to branch 'master'
-```
-
-We see that the commit we did on the "experiment" branch is gone
-
-```
-git lg
-
--> * af25761 (HEAD -> master) Add new line of text (2 days ago) <David Granström>
-   * 9319ba3 Initial commit (2 days ago) <David Granström>
-```
-
-...and if we check the file content we see that the line we added on the "experiment" branch has vanished
-
-```
-$ cat README
-
--> This is a README
-   This is a new line
-```
+As we already have an existing repository we will choose the second option: *...or push and existing repository from the command line.*
 
 ---
 
+## git remote
+
+Verify that you are standing inside your local repository in your terminal using the `pwd` command. It should display something like `/Users/you/Desktop/git-test`
+
+Then copy and paste the lines from the github page (don't copy from this slide as the remote address will be something different for you)
+
+```
+$ git remote add origin https://github.com/you/git-test.git
+$ git push -u origin master
+
+-> Counting objects: 13, done.
+   Delta compression using up to 4 threads.
+   Compressing objects: 100% (7/7), done.
+   Writing objects: 100% (13/13), 1.07 KiB | 1.07 MiB/s, done.
+   Total 13 (delta 3), reused 0 (delta 0)
+   remote: Resolving deltas: 100% (3/3), done.
+   To github.com:davidgranstrom/git-test.git
+   * [new branch]      master -> master
+   Branch master set up to track remote branch master from origin.
+```
+
+That's it! You have now pushed your local repository to a remote repository residing on github. Refresh your browser tab to see the content of your repository.
+
+---
 class: middle, center
 
-# git merge
+# Updating
 
 ---
 
-## git merge
+## git push
 
-Let's switch back to the "experiment" branch
+If we continue working on our local repository and commit new changes to it, we regularly want to update our remote on github. We do that with the `push` command.
 
-```
-$ git checkout experiment
-```
-
---
-And add another commit
+Let's create a new file
 
 ```
-$ echo "Another experimental commit" >> README
+$ echo "Some content" > another-file
+$ git add another-file
+$ git commit -m "Add another file"
 ```
+And push it to our remote (i.e. github)
 
 ```
-$ git commit README -m "Add another experimental commit"
-
--> [experiment 8df2311] Add another experimental commit
-   1 file changed, 1 insertion(+)
+$ git push
 ```
 
 ---
 
-## git merge
+class: center
 
-Say that we are happy with the state of the "experiment" branch and want to merge back the commits into master
+## Summary of what we know so far
 
-```
-$ git checkout master
-```
+.center-table[
 
-We do that with the `merge` command
+| Command                     | Description                          |
+|:--------------------------- | ------------------------------------:|
+| `git init`                  | Initialize a git repository          |
+| `git add`                   | Add files for git to track           |
+| `git commit`                | Commit files and/or changes to files |
+| `git log`                   | Display history                      |
+| `git diff`                  | View changes                         |
+| `git remote`                | Configure remote repositories        |
+| `git push`                  | Push changes to remote repositories  |
 
-```
-$ git merge --no-ff experiment
-
--> Merge made by the 'recursive' strategy.
-   README | 2 ++
-   1 file changed, 2 insertions(+)
-```
-
-The `--no-ff` flag is optional and means "no fast-forward" and gives us a clearer representation of the commit history
-
----
-
-## git merge
-
-Take a look at the history
-
-```
-$ git lg
-
--> *   ec21d77 - (HEAD -> master) Merge branch 'experiment' (2 minutes ago) <David Granström>
-   |\
-   | * 8df2311 - (experiment) Add another experimental commit (4 minutes ago) <David Granström>
-   | * fcb468e - Add experimental line (44 minutes ago) <David Granström>
-   |/
-   * af25761 - Add new line of text (2 days ago) <David Granström>
-   * 9319ba3 - Initial commit (2 days ago) <David Granström>
-```
-
-We can clearly see when the "experiment" branch was merged back into master.
-
-It is now safe to delete the "experiment" branch
-
-```
-$ git branch -d experiment
-
--> Deleted branch experiment (was 8df2311).
-```
-
----
+]
 
 
+<!-- ## git clone -->
 
-<!-- ## git merge (conflict) -->
+<!-- Git is a **distributed** version control system (also known as **decentralized**), unlike many of its predecessors, git takes a *peer-to-peer* approach to version control rather than than a *client-server* approach as with centralized systems. -->
+
+<!-- In practice, this means that each developer receives a **full** copy of the repository. --> 
+
+<!-- To get a copy of git repository found online, we use the `clone` command. -->
+
+<!-- Let's clone the c0dereview web site: -->
 
 <!-- ``` -->
-<!-- $ echo "A new commit on master" >> README -->
+<!-- $ cd ~/Desktop -->
+<!-- $ git clone https://github.com/C0dereview/c0dereview.github.io.git -->
+
+<!-- -> Cloning into 'c0dereview.github.io'... -->
+<!--    remote: Counting objects: 161, done. -->
+<!--    remote: Compressing objects: 100% (110/110), done. -->
+<!--    remote: Total 161 (delta 56), reused 116 (delta 33), pack-reused 0 -->
+<!--    Receiving objects: 100% (161/161), 36.29 KiB | 571.00 KiB/s, done. -->
+<!--    Resolving deltas: 100% (56/56), done. -->
 <!-- ``` -->
 
-<!-- ``` -->
-<!-- $ git commit README -m "Add new line on master" -->
+<!-- --- -->
 
-<!-- -> [master 62e82ac] Add new line on master -->
-<!--    1 file changed, 1 insertion(+) -->
-<!-- ``` -->
+<!-- ## git clone -->
+
+<!-- We now have a local copy of the c0dereview.github.io repository -->
 
 <!-- ``` -->
-<!-- $ git lg --all -->
+<!-- $ cd c0dereview.github.io -->
+<!-- $ ls -->
 
-<!-- -> * 62e82ac - (HEAD -> master) Add new line on master (7 seconds ago) <David Granström> -->
-<!--    | * fcb468e - (experiment) Add experimental line (31 minutes ago) <David Granström> -->
-<!--    |/ -->
-<!--    * af25761 - Add new line of text (2 days ago) <David Granström> -->
-<!--    * 9319ba3 - Initial commit (2 days ago) <David Granström> -->
+<!-- -> 404.html     Gemfile.lock _includes    _posts       about.md     index.md -->
+<!--    Gemfile      _config.yml  _layouts     _sass        assets -->
 <!-- ``` -->
 
+<!-- From here we could for example make a new branch, commit changes, and when we're happy with our changes we could send a *pull request* (PR) to the github repository and have the changes merged into the upstream repository. -->
 
+<!-- We will discuss all of the details for making that happen later. -->
 
-
-
-
+<!-- --- -->
 
