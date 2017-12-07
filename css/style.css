@@ -67,27 +67,29 @@ blockquote p {
 
 a {
   text-decoration: none;
+  color: hotpink;
 }
 
 a:link {
-  color: white;
+  color: hotpink;
 }
 
 a:visited {
-  color: white;
+  color: hotpink;
 }
 
 a:focus {
-  color: white;
+  background: hotpink;
+  color: black;
 }
 
 a:hover {
-  background: white;
+  background: hotpink;
   color: black;
 }
 
 a:active {
-  background: white;
+  background: hotpink;
   color: black;
 }
 
