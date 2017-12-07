@@ -16,7 +16,7 @@ Git (/ɡɪt/) is a **version control system**
 
 > Version control is a system that records changes to a file or set of files<br/> over time so that you can recall specific versions later. 
 
-— Pro git book
+— [Pro Git book](https://git-scm.com/book/en/v2)
 
 ---
 
