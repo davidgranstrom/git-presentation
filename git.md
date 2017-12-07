@@ -30,8 +30,9 @@ my-awesome-code1.scd
 my-awesome-code2.scd
 my-awesome-code2-FINAL.scd
 my-awesome-code2-FINAL2.scd
+my-awesome-code2-FINAL3.scd
 my-awesome-code2-FINAL2-FINAL-FOR-REALZ.scd
-my-awesome-code2-FINAL2-FINAL-FOR-REALZ_1.scd
+my-awesome-code2-FINAL2-FINAL-FOR-REALZ_001.scd
 ```
 
 --
@@ -68,14 +69,15 @@ $ git init
 -> Initialized empty Git repository in /Users/user/Desktop/git-test/.git/
 ```
 
+Git is now initialized in this directory and can start to track changes to files.
 
-Git is now aware of this directory and can start to track changes to files.
+It has created a hidden directory inside the folder where it keeps track of all changes, you can see it if you type `ls -la`. The git repository is entirely self contained and does not depended on any other file outside of the folder.
 
 ---
 
 ## git status
 
-Now that we have set up `git` what can we do with it?
+Now that we have set up git what can we do with it?
 
 One useful command we could try is the `status` command.
 
@@ -143,7 +145,7 @@ $ git commit -m Initial commit
     create mode 100644 README
 ```
 
-We passed the `-m` flag in order to supply a commit message from the command line. Its common to call the first commit "Initial commit". The initial commit is also known as the "root commit", from where our tree of recored changes will grow.
+We passed the `-m` flag in order to supply a commit message from the command line. Its common to call the first commit "Initial commit". The initial commit is also known as the "root commit", from where our tree of recorded changes will grow.
 
 Let's take a look at the status again
 
@@ -153,6 +155,8 @@ $ git status
 -> On branch master
    nothing to commit, working tree clean
 ```
+
+All good!
 
 ---
 class: center
@@ -238,7 +242,7 @@ $ git add README
 $ git commit
 ```
 
-You will notice that if we don't use the `-m` flag we will be taken to our $EDITOR to write the commit message. On most systems this editor is `vi`.
+You will notice that if we don't use the `-m` flag we will be taken to the system's $EDITOR to write the commit message. On most systems this editor is `vi`.
 
 There is also shorter way to commit changes by giving the file as an argument to the commit command
 
@@ -250,7 +254,7 @@ $ git commit README
 
 ## git log
 
-Let's take a look at our commit history so far!
+Let's take a look at our commit history so far
 
 ```
 $ git log
