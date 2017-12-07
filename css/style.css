@@ -1,9 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Varela+Round);
-@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
 @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
 
 body {
-  font-family: 'Droid Serif';
+  font-family: 'Roboto';
 }
 
 h1, h2, h3 {
@@ -110,5 +110,7 @@ a:active {
 }
 
 .remark-inline-code {
-  /* color: red; */
+  background: #555;
+  color: white;
+  padding: 3px;
 }
