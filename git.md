@@ -66,7 +66,7 @@ Setup git in this directory
 ```
 $ git init
 
--> Initialized empty Git repository in /Users/user/Desktop/git-test/.git/
+-> Initialized empty Git repository in /Users/you/Desktop/git-test/.git/
 ```
 
 Git is now initialized in this directory and can start to track changes to files.
@@ -138,7 +138,7 @@ In order for git to begin to track it we need to `commit` it.
 The `commit` command tells git that we want to record the current state of its staged files.
 
 ```
-$ git commit -m Initial commit
+$ git commit -m "Initial commit"
 
 -> [master (root-commit) 9319ba3] Initial commit
     1 file changed, 1 insertion(+)
