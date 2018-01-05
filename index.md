@@ -8,7 +8,7 @@ class: middle, center
 
 Git (/ɡɪt/) is a **version control system**
 
-![git branch](/images/git-branch.png)
+![git branch](images/git-branch.png)
 
 ---
 
