@@ -242,13 +242,26 @@ $ git add README
 $ git commit
 ```
 
-You will notice that if we don't use the `-m` flag we will be taken to the system's $EDITOR to write the commit message. On most systems this editor is `vi`.
-
-There is also shorter way to commit changes by giving the file as an argument to the commit command
+or use an even shorter way to do the same
 
 ```
 $ git commit README
 ```
+
+You will notice that if we don't use the `-m` flag we will be taken to the system's $EDITOR to write the commit message. On most systems this editor is `vi` (and commonly aliased to `vim`).
+
+Please see the next slide to get an overview on how to write a commit message in `vim`.
+
+---
+
+## Writing a commit message in vim
+
+If haven't used `vim` before it may feel strange. Vim is a great editor, but it can take a while to get used to. Here are the commands that you will need to know to write a commit message and exit the editor:
+
+1. Press `i` to enter Insert mode
+2. Write your commit message
+3. Press `<Esc>` to exit Insert mode
+4. Type `:wq` to save and quit
 
 ---
 
